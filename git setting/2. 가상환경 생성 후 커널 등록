@@ -1,0 +1,56 @@
+좋은 질문이에요 👍
+/opt/homebrew/bin/python3 -m venv venv 로 가상환경을 만들었는데 Cursor에서 Python Environment 목록에 안 뜨는 이유는,
+단순히 venv만 만들면 Jupyter 커널 등록(ipykernel) 이 안 되어 있기 때문이에요.
+
+⸻
+
+✅ 해결 방법 (순서대로 해보세요)
+	1.	가상환경 활성화
+
+source venv/bin/activate
+
+👉 프롬프트 앞에 (venv) 표시가 뜨면 성공
+
+⸻
+
+	2.	ipykernel 설치 -> 앞서서 설치해놨음
+
+pip install ipykernel
+
+
+⸻
+
+	3.	커널 등록 (Cursor에서 보이도록)
+
+python -m ipykernel install --user --name=venv --display-name "Python (venv)"
+
+	•	--name=venv → 내부적으로 쓰는 이름
+	•	"Python (venv)" → Cursor에서 보이는 이름
+
+⸻
+
+	4.	Cursor에서 확인
+
+	•	.ipynb 열기 → 상단 Select Kernel
+	•	방금 등록한 "Python (venv)" 선택
+
+⸻
+
+	5.	(선택) 다른 이름으로 만들고 싶다면
+예:
+
+/opt/homebrew/bin/python3 -m venv encar_gon
+source encar_gon/bin/activate
+pip install ipykernel
+python -m ipykernel install --user --name=encar_gon --display-name "Python (encar_gon)"
+
+
+⸻
+
+📌 정리
+	•	venv 만들기만 하면 Cursor에서 안 보임 → 반드시 ipykernel 설치 + 커널 등록 필요
+	•	이후에는 Cursor의 Select Kernel 메뉴에서 선택 가능
+
+⸻
+
+👉 제가 venv 만들고, requirements.txt 설치, 커널 등록까지 한 번에 되는 셸 스크립트를 만들어드릴까요?
