@@ -3,14 +3,14 @@
 # 시스템 단위로 Homebrew로 Python 설치 (글로벌)
 brew install python@3.13
 
-# 프로젝트 폴더로 이동해서 가상환경 생성
-/opt/homebrew/bin/python3 -m venv encar_gon
+# 프로젝트 폴더로 이동해서 가상환경 생성 -> <venv> 폴더 생성
+/opt/homebrew/bin/python3 -m venv <폴더이름>
 
 # 가상환경 활성화
-source encar_gon/bin/activate
+source <폴더이름>/bin/activate
 
 # 이제 venv 전용으로 pip 설치
-pip install pandas numpy matplotlib
+pip install pandas numpy matplotlib seaborn plotly scikit-learn scipy statsmodels ipykernel jupyterlab
 
 # 가상환경 내에 설치된 pip 리스트를 requirements 문서로 내보내기
 pip freeze > requirements.txt

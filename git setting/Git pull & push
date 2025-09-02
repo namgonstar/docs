@@ -1,0 +1,20 @@
+# 1. 원격 저장소의 최신 상태를 내 로컬에 가져오기
+git checkout main               # 로컬 main 브랜치로 이동
+git pull origin main            # 원격(main)의 최신 내용을 받아옴
+ 
+# 2. 작업 브랜치 만들기 (기능/버그별로 따로)
+git checkout -b feature/awesome-update  # 새 브랜치 생성 & 이동
+ 
+# 3. 코드 수정 후 커밋하기
+git add .                       # 변경된 모든 파일 스테이지에 올리기
+git commit -m "✨ 기능: 어썸 업데이트 추가"  # 커밋 메시지 작성
+ 
+# 4. 작업 내용을 원격 브랜치로 푸시
+git push origin feature/awesome-update
+ 
+# 5. 다시 main 브랜치 최신화 (다른 사람 작업 반영)
+git checkout main
+git pull origin main
+ 
+# 6. (선택) main에 머지하기 전에 최신 코드와 충돌 확인
+git merge feature/awesome-update  # 충돌이 없으면 main에 병합
